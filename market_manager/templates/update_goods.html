@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang='zh-cn' xml:lang="zh-cn">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+   <title>更新商品信息</title>
+   <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+   <link type="text/css" rel="stylesheet" href="/static/manager.css">
+</head>
+<body>
+<div class = "div1">
+</div>
+<div id="menu" class="div">
+	<div class="pure-menu pure-menu-open pure-menu-horizontal" align = "center">
+        <a class="pure-menu-heading">超市系统</a>
+        <ul>
+			<li><a href="/accounts/manager_main">主页面</a></li>
+			<li><a href="/accounts/show">商品列表</a></li>
+            <li><a href="/accounts/Sales">业绩查询</a></li>
+			<li><a href="/admin">后台管理</a></li>
+			<li><a href="/accounts/logout">退出</a></li>
+        </ul>
+	</div>
+</div>
+</br>
+<hr/>
+<div class="div" align = "center">
+<form action="" method="post" class="pure-form">{% csrf_token %}
+    <table class = "table1">
+    {%for field in form%}
+		<tr><th>{{field.label}}</th>
+        <td>{{field}}</td></tr>
+    {%endfor%}
+    </table>
+    <input type="submit" value="Update" class="pure-button"/>
+</form>
+</div>
+<div class = "div_bottom">
+<h6 align = "center">version 1.0</h6>
+</div>
+</body>
+<html>

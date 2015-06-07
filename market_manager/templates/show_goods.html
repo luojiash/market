@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang='zh-cn' xml:lang="zh-cn">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<title>商品列表</title>
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+	<link type="text/css" rel="stylesheet" href="/static/manager.css">
+</head>
+<body>
+<div class = "div1">
+</div>
+<div class="div">
+	<div class="pure-menu pure-menu-open pure-menu-horizontal" align = "center">
+        <a class="pure-menu-heading">超市系统</a>
+        <ul>
+			<li><a href="/accounts/manager_main">主页面</a></li>
+			<li><a href="/accounts/show">商品列表</a></li>
+            <li><a href="/accounts/Sales">业绩查询</a></li>
+			<li><a href="/admin">后台管理</a></li>
+			<li><a href="/accounts/logout">退出</a></li>
+        </ul>
+	</div>
+</div>
+</br>
+<hr/>
+<div class="div" align = "center">
+{% if error %}
+	{%for err in error%}
+	<p style="color:red;">{{err}} </p>
+	{%endfor%}
+{% endif %}
+<form action="" method="get" class="pure-form">
+	<input type="text" name="q" {%if q%}value={{q}}{%endif%} placeholder="Keyword">
+	<label>库存</label>
+	<select name="comp">
+		<option value="less">小于等于</option>
+		<option value="more">大于等于</option>
+	</select>
+	<input type="number" name="r" size="10" {%if r%}value={{r}}{%endif%} placeholder="number">
+	<input type="submit" value="Search" class="pure-button">
+</form>
+</br>
+{%if form%}
+	<table class="pure-table pure-table-striped" id = "table3">
+		<thead>
+			<tr>
+				<th>代号</th>
+				<th>名称</th>
+				<th>类别</th>
+				<th>售价</th>
+				<th>库存</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for goods in form.object_list %}
+			<tr>
+				<td>{{goods.ID}}</td>
+				<td><a href="/accounts/update/{{goods.ID}}/">{{goods.Name}}</a></td>
+				<td>{{goods.Type}}</td>
+				<td>{{goods.SellingPrice}}</td>
+				<td>{{goods.Inventory}}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<p><ul class="pure-paginator">
+		{% if form.has_previous %}
+		<li><a class="pure-button prev" href="?{%if q%}q={{q}}&{%endif%}{%if r%}comp={{comp}}&r={{r}}&{%endif%}page={{ form.previous_page_number}}">&#171;</a></li>
+		{% endif %}
+		{% for page_number in form.paginator.page_range %}
+			{% ifequal page_number  form.number %}
+				<li><a class="pure-button pure-button-active">{{ page_number }}</a></li>
+			{% else %}
+				<li><a class="pure-button" href="?{%if q%}q={{q}}&{%endif%}{%if r%}comp={{comp}}&r={{r}}&{%endif%}page={{page_number}}">{{ page_number }}</a></li>
+			{% endifequal %}
+		{% endfor %}
+		{% if form.has_next %}
+		<li><a class="pure-button next" href="?{%if q%}q={{q}}&{%endif%}{%if r%}comp={{comp}}&r={{r}}&{%endif%}page={{form.next_page_number}}">&#187;</a></li>
+		{% endif %}
+	</ul></p>
+{% else %}
+	<p> No Records! </p>
+{%endif%}
+
+{%if q or r%}
+	<a href="/accounts/show/">all goods</a>
+{%endif%}
+</div>
+<div class = "div_bottom">
+<h6 align = "center">version 1.0</h6>
+</div>
+</body>
+</html>

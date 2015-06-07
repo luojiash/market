@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang='zh-cn' xml:lang="zh-cn">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+   <title>登录</title>
+   <link type="text/css" rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+   <link type="text/css" rel="stylesheet" href="/static/login.css">
+</head>
+<body> 
+	<div class = "div1">
+	</div>
+	</br>
+	<hr/>
+    <div align="center">
+	<table class = "table1" align="center">
+		<tr>
+			<td>
+				<form class="pure-form" action="/accounts/login/" method="post">
+					<label for="username">用户名:</label>
+					<input required="required" name="username" type="text" class="pure-input-rounded" id="username">
+					<aside>
+					{% if error %}
+					<p class="error">用户名或密码错误，请重新输入！ </p>
+					{% endif %}
+					</aside>
+					<br /><br />
+					<label for="password" >密码 ：</label>
+					<input required="required" name="password" type="password" class="pure-input-rounded" id="password">
+					<br /><br />
+					<input class="pure-button" type="submit" value="登录">
+				</form>
+			</td>
+		</tr>
+	</table>
+    </div>
+</body>
+<div class = "div_bottom">
+<h6 align = "center">version 1.0</h6>
+</div>
+</html>

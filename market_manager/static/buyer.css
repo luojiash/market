@@ -1,0 +1,41 @@
+body{
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+	font-size: 15px;
+	background: #fafad2;
+}
+
+#table2{
+    margin-left: auto;
+	margin-right: auto;
+	border: thin dotted #7e7e7e;
+	margin-top: 40px;
+}
+
+#table2 td{
+	padding:10px;
+}
+
+table.table1 td{
+	padding:15px;
+}
+
+div.div1 {
+	height: 150px;
+	background-repeat:no-repeat;
+	background-image:url(../static/main.jpg);
+	background-position:center;
+}
+
+div.div{
+	margin:0 auto; 
+	width:780px;
+	margin-top:10px;
+}
+
+div.div_bottom{
+	height: 20px;
+	width:600px;
+	margin:0 auto;
+	margin-top:50px;
+	background: #0000ff;
+}

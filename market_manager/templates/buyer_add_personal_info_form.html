@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang='zh-cn' xml:lang="zh-cn">
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <title>个人信息</title>
+   <link type="text/css" rel="stylesheet" href="/static/buyer.css">
+   <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+</head>
+<body>
+<div class = "div1">
+</div>
+<div class="div">
+	<div class="pure-menu pure-menu-open pure-menu-horizontal" align = "center">
+        <a class="pure-menu-heading">超市系统</a>
+        <ul>
+			<li><a href="/accounts/buyer_main">主页面</a></li>
+			<li><a href="/accounts/add_existent_Goods_form">添加已有商品</a></li>
+            <li><a href="/accounts/add_new_Goods_form">添加新商品</a></li>
+			<li><a href="/accounts/buyer_show_personal_info">个人信息</a></li>
+			<li><a href="/accounts/logout">退出</a></li>
+        </ul>
+	</div>
+</div>
+</br>
+<hr/>
+<div class="div" align = "center">
+	<form action="/accounts/buyer_add_personal_info/" method="post" class="pure-form">
+		<table class="table1">
+        <tr><th><label for="name">姓名:</label></th>
+        <td><input type="text" name="name" id="name" required="required"></input><br/></td></tr>
+		<tr><th><label for="sex">性别:</label></th>
+        <td><select name="sex">
+		          <option value="M">男</option>
+			      <option value="F">女</option>
+              </select><br/></td></tr>
+		<tr><th><label for="age">年龄:</label></th>
+        <td><input type="text" name="age" id="age" required="required"></input><br/></td></tr>
+		<tr><th><label for="position">职位:</label></th>
+        <td><select name="position">
+		          <option value="manager">超市经理</option>
+			      <option value="buyer">采购员</option>
+				  <option value="saleman">销售员</option>
+              </select><br/></td></tr>
+		<tr><th><label for="address">家庭住址:</label></th>
+        <td><input type="text" name="address" id="address" required="required"></input><br/></td></tr>
+		<tr><th><label for="phonenum">电话:</label></th>
+        <td><input type="text" name="phonenum" id="phonenum" required="required"></input><br/></td></tr>
+
+        <tr><td><input type="submit" value="保存个人信息" class="pure-button"></input></td>
+		</table>
+    </form>
+</div>
+<div class = "div_bottom">
+<h6 align = "center">version 1.0</h6>
+</div>
+</body>
+</html>
+
